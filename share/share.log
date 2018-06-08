@@ -1,0 +1,19 @@
+2018-06-08 12:45:33,975 INFO  [org.alfresco.web.config.packaging.ModulePackageManager] [localhost-startStop-1] Found 2 module package(s)
+2018-06-08 12:45:33,976 INFO  [org.alfresco.web.config.packaging.ModulePackageManager] [localhost-startStop-1] share Share Jar Module - SDK 3, 1.0-SNAPSHOT, Share JAR Module (to be included in the share.war) - SDK 3
+share Share Jar Module - SDK 3, 1.0-SNAPSHOT, Share JAR Module (to be included in the share.war) - SDK 3
+
+2018-06-08 12:45:34,838 INFO  [org.springframework.extensions.webscripts.TemplateProcessorRegistry] [localhost-startStop-1] Registered template processor freemarker for extension ftl
+2018-06-08 12:45:34,851 INFO  [org.springframework.extensions.webscripts.ScriptProcessorRegistry] [localhost-startStop-1] Registered script processor javascript for extension js
+2018-06-08 12:45:34,852 INFO  [org.springframework.extensions.webscripts.TemplateProcessorRegistry] [localhost-startStop-1] Registered template processor freemarker for extension ftl
+2018-06-08 12:45:34,857 INFO  [org.springframework.extensions.webscripts.ScriptProcessorRegistry] [localhost-startStop-1] Registered script processor javascript for extension js
+2018-06-08 12:45:38,194 INFO  [org.springframework.extensions.webscripts.DeclarativeRegistry] [localhost-startStop-1] Registered 393 Web Scripts (+0 failed), 411 URLs
+2018-06-08 12:45:38,194 INFO  [org.springframework.extensions.webscripts.DeclarativeRegistry] [localhost-startStop-1] Registered 8 Package Description Documents (+0 failed) 
+2018-06-08 12:45:38,194 INFO  [org.springframework.extensions.webscripts.DeclarativeRegistry] [localhost-startStop-1] Registered 0 Schema Description Documents (+0 failed) 
+2018-06-08 12:45:38,315 INFO  [org.springframework.extensions.webscripts.AbstractRuntimeContainer] [localhost-startStop-1] Initialised Surf Container Web Script Container (in 3439.3396ms)
+2018-06-08 12:45:38,317 INFO  [org.springframework.extensions.webscripts.TemplateProcessorRegistry] [localhost-startStop-1] Registered template processor freemarker for extension ftl
+2018-06-08 12:45:38,319 INFO  [org.springframework.extensions.webscripts.ScriptProcessorRegistry] [localhost-startStop-1] Registered script processor javascript for extension js
+2018-06-08 12:58:30,766 INFO  [org.alfresco.web.site.EditionInterceptor] [http-bio-8081-exec-1] Successfully retrieved license information from Alfresco.
+2018-06-08 12:58:45,381 INFO  [org.alfresco.web.scripts.ImapServerStatus] [http-bio-8081-exec-6] Successfully retrieved IMAP server status from Alfresco: disabled
+2018-06-08 12:59:17,049 INFO  [org.alfresco.web.scripts.DictionaryQuery] [http-bio-8081-exec-1] Successfully retrieved Data Dictionary from Alfresco.
+2018-06-08 12:59:18,501 INFO  [org.alfresco.web.scripts.QuickShareStatus] [http-bio-8081-exec-1] Successfully retrieved quick share information from Alfresco.
+2018-06-08 12:59:20,114 INFO  [org.alfresco.web.scripts.MimetypesQuery] [http-bio-8081-exec-6] Successfully retrieved mimetypes information from Alfresco.

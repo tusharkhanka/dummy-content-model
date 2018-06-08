@@ -1,0 +1,366 @@
+<alfresco-config>
+
+    <config evaluator="string-compare" condition="DocumentLibrary">
+        <types>
+            <type name="cm:content">
+                <subtype name="ccm:aadhar"/>
+                <subtype name="ccm:panCard"/>
+            </type>
+        </types>
+    </config>
+
+    <config evaluator="string-compare" condition="AdvancedSearch" replace="true">
+        <advanced-search>
+            <forms>
+                <!-- Standard out-of-the-box types -->
+                <form labelId="search.form.label.cm_content" descriptionId="search.form.desc.cm_content">cm:content
+                </form>
+                <form labelId="search.form.label.cm_folder" descriptionId="search.form.desc.cm_folder">cm:folder</form>
+
+                <!-- Custom type -->
+                <form labelId="form.label.advancedsearch.ccm_aadhar"
+                      descriptionId="form.description.advancedsearch.ccm_aadharCard">ccm:aadhar
+                </form>
+                <form labelId="form.label.advancedsearch.ccm_panCard"
+                      descriptionId="form.description.advancedsearch.ccm_panCard">ccm:panCard
+                </form>
+            </forms>
+        </advanced-search>
+    </config>
+
+    <!-- View and Edit forms for acme:document -->
+ 	<!-- ccm:aadhar type -->
+	<config evaluator="node-type" condition="ccm:aadhar">
+		<forms>
+			<!-- Default form configuration for the ccm:aadhar type -->
+			<form>
+				<field-visibility>
+					<!-- OOTB content type -->
+					<show id="cm:name" />
+					<show id="cm:title" force="true" />
+					<show id="cm:description" force="true" />
+					<show id="cm:author" force="true" />
+					<show id="size" for-mode="view" />
+					<show id="cm:creator" for-mode="view" />
+					<show id="cm:created" for-mode="view" />
+					<show id="cm:modifier" for-mode="view" />
+					<show id="cm:modified" for-mode="view" />
+					<!-- ccm:aadhar -->
+					<show id="ccm:aadharName" />
+					<show id="ccm:aadharNumber" />
+					<show id="cm:taggable" for-mode="edit" force="true" />
+				</field-visibility>
+
+				<appearance>
+
+					<!-- OOTB content type -->
+					<field id="size">
+						<control template="/org/alfresco/components/form/controls/size.ftl" />
+					</field>
+
+					<!-- ccm:aadhar -->
+					<field id="ccm:aadharName" label-id="prop.ccm_aadharName"/>
+					<field id="ccm:aadharNumber" label-id="prop.ccm_aadharNumber"/>
+					<field id="cm:taggable">
+						<control>
+							<control-param name="compactMode">true</control-param>
+							<control-param name="params">aspect=cm:taggable
+							</control-param>
+							<control-param name="createNewItemUri">/api/tag/workspace/SpacesStore
+							</control-param>
+							<control-param name="createNewItemIcon">tag</control-param>
+						</control>
+					</field>
+					
+				</appearance>
+			</form>
+
+			<!-- Document Library pop-up Edit Metadata form -->
+			<form id="doclib-simple-metadata">
+				<field-visibility>
+					<!-- OOTB content type -->
+					<show id="cm:name" />
+					<show id="cm:title" force="true" />
+					<show id="cm:description" force="true" />
+					<!-- ev:eisenvaultDoc -->
+					<show id="ccm:aadharName" />
+					<show id="ccm:aadharNumber" />
+					<show id="cm:taggable" for-mode="edit" force="true" />
+				</field-visibility>
+
+				<appearance>
+					<!-- ccm:aadhar -->
+					<field id="ccm:aadharName" label-id="prop.ccm_aadharName"/>
+					<field id="ccm:aadharNumber" label-id="prop.ccm_aadharNumber"/>
+					<field id="cm:taggable">
+						<control>
+							<control-param name="compactMode">true</control-param>
+							<control-param name="params">aspect=cm:taggable
+							</control-param>
+							<control-param name="createNewItemUri">/api/tag/workspace/SpacesStore
+							</control-param>
+							<control-param name="createNewItemIcon">tag</control-param>
+						</control>
+					</field>
+
+				</appearance>
+			</form>
+
+			<!-- Document Library Inline Edit form -->
+			<form id="doclib-inline-edit">
+				<field-visibility>
+					<!-- OOTB content type -->
+					<show id="cm:name" />
+					<show id="cm:title" force="true" />
+					<show id="cm:description" force="true" />
+					<show id="cm:content" force="true" />
+					<!-- ev:eisenvaultDoc -->
+					<show id="ccm:aadharName" />
+					<show id="ccm:aadharNumber" />
+					<show id="cm:taggable" for-mode="edit" force="true" />
+				</field-visibility>
+
+				<appearance>
+					<!-- ccm:aadhar -->
+					<field id="ccm:aadharName" label-id="prop.ccm_aadharName"/>
+					<field id="ccm:aadharNumber" label-id="prop.ccm_aadharNumber"/>
+					<field id="cm:taggable">
+						<control>
+							<control-param name="compactMode">true</control-param>
+							<control-param name="params">aspect=cm:taggable
+							</control-param>
+							<control-param name="createNewItemUri">/api/tag/workspace/SpacesStore
+							</control-param>
+							<control-param name="createNewItemIcon">tag</control-param>
+						</control>
+					</field>
+
+				</appearance>
+			</form>
+		</forms>
+	</config>
+
+	<!-- Advanced search form configuration -->
+	<config evaluator="model-type" condition="ccm:aadhar">
+		<forms>
+			<!-- Search form configuration for the ev:eisenvaultDoc type -->
+			<form id="search">
+				<field-visibility>
+					<!-- OOTB content type -->
+					<show id="cm:name" />
+					<show id="cm:title" force="true" />
+					<show id="cm:description" force="true" />
+					<show id="cm:author" force="true" />
+					<show id="cm:creator" force="true" />
+					<show id="cm:created" force="true" />
+					<show id="cm:modifier" force="true" />
+					<show id="cm:modified" force="true" />
+					<!-- ccm:aadhar -->
+					<show id="ccm:aadharName" />
+					<show id="ccm:aadharNumber" />
+				</field-visibility>
+
+				<appearance>
+					<!-- OOTB content type -->
+					<field id="cm:created">
+						<control template="/org/alfresco/components/form/controls/daterange.ftl" />
+					</field>
+					<field id="cm:modified">
+						<control template="/org/alfresco/components/form/controls/daterange.ftl" />
+					</field>
+					<!-- ccm:aadhar -->
+					<field id="ccm:aadharName" label-id="prop.ccm_aadharName"/>
+					<field id="ccm:aadharNumber" label-id="prop.ccm_aadharNumber"/>
+				</appearance>
+			</form>
+
+			<!-- default form for Uploader Plus tool -->
+			<form>
+				<field-visibility>
+					<!-- OOTB content type -->
+					<show id="cm:name" />
+					<show id="cm:title" force="true" />
+					<show id="cm:description" force="true" />
+					<!-- ccm:aadhar -->
+					<show id="ccm:aadharName" />
+					<show id="ccm:aadharNumber" />
+				</field-visibility>
+
+				<appearance>
+					<!-- ccm:aadhar -->
+					<field id="ccm:aadharName" label-id="prop.ccm_aadharName"/>
+					<field id="ccm:aadharNumber" label-id="prop.ccm_aadharNumber"/>
+				</appearance>
+			</form>
+		</forms>
+	</config>
+
+
+
+
+	<config evaluator="node-type" condition="ccm:panCard">
+		<forms>
+			<!-- Default form configuration for the ev:eisenvaultDoc type -->
+			<form>
+				<field-visibility>
+					<!-- OOTB content type -->
+					<show id="cm:name" />
+					<show id="cm:title" force="true" />
+					<show id="cm:description" force="true" />
+					<show id="cm:author" force="true" />
+					<show id="size" for-mode="view" />
+					<show id="cm:creator" for-mode="view" />
+					<show id="cm:created" for-mode="view" />
+					<show id="cm:modifier" for-mode="view" />
+					<show id="cm:modified" for-mode="view" />
+					<!-- ccm:panCard -->
+					<show id="ccm:panCardName" />
+					<show id="ccm:panCardNumber" />
+					<show id="cm:taggable" for-mode="edit" force="true" />
+				</field-visibility>
+
+				<appearance>
+
+					<!-- OOTB content type -->
+					<field id="size">
+						<control template="/org/alfresco/components/form/controls/size.ftl" />
+					</field>
+
+					<!-- ccm:panCard -->
+					<field id="ccm:panCardName" label-id="prop.ccm_panCardName"/>
+					<field id="ccm:panCardNumber" label-id="prop.ccm_panCardNumber"/>
+					<field id="cm:taggable">
+						<control>
+							<control-param name="compactMode">true</control-param>
+							<control-param name="params">aspect=cm:taggable
+							</control-param>
+							<control-param name="createNewItemUri">/api/tag/workspace/SpacesStore
+							</control-param>
+							<control-param name="createNewItemIcon">tag</control-param>
+						</control>
+					</field>
+					
+				</appearance>
+			</form>
+
+			<!-- Document Library pop-up Edit Metadata form -->
+			<form id="doclib-simple-metadata">
+				<field-visibility>
+					<!-- OOTB content type -->
+					<show id="cm:name" />
+					<show id="cm:title" force="true" />
+					<show id="cm:description" force="true" />
+					<!-- ev:eisenvaultDoc -->
+					<show id="ccm:panCardName" />
+					<show id="ccm:panCardNumber" />
+					<show id="cm:taggable" for-mode="edit" force="true" />
+				</field-visibility>
+
+				<appearance>
+					<!-- ccm:aadhar -->
+					<field id="ccm:aadharName" label-id="prop.ccm_panCardName"/>
+					<field id="ccm:aadharNumber" label-id="prop.ccm_panCardNumber"/>
+					<field id="cm:taggable">
+						<control>
+							<control-param name="compactMode">true</control-param>
+							<control-param name="params">aspect=cm:taggable
+							</control-param>
+							<control-param name="createNewItemUri">/api/tag/workspace/SpacesStore
+							</control-param>
+							<control-param name="createNewItemIcon">tag</control-param>
+						</control>
+					</field>
+
+				</appearance>
+			</form>
+
+			<!-- Document Library Inline Edit form -->
+			<form id="doclib-inline-edit">
+				<field-visibility>
+					<!-- OOTB content type -->
+					<show id="cm:name" />
+					<show id="cm:title" force="true" />
+					<show id="cm:description" force="true" />
+					<show id="cm:content" force="true" />
+					<!-- ev:eisenvaultDoc -->
+					<show id="ccm:panCardName" />
+					<show id="ccm:panCardNumber" />
+					<show id="cm:taggable" for-mode="edit" force="true" />
+				</field-visibility>
+
+				<appearance>
+					<!-- ccm:panCard -->
+					<field id="ccm:panCardName" label-id="prop.ccm_panCardName"/>
+					<field id="ccm:panCardNumber" label-id="prop.ccm_panCardNumber"/>
+					<field id="cm:taggable">
+						<control>
+							<control-param name="compactMode">true</control-param>
+							<control-param name="params">aspect=cm:taggable
+							</control-param>
+							<control-param name="createNewItemUri">/api/tag/workspace/SpacesStore
+							</control-param>
+							<control-param name="createNewItemIcon">tag</control-param>
+						</control>
+					</field>
+
+				</appearance>
+			</form>
+		</forms>
+	</config>
+
+	<!-- Advanced search form configuration -->
+	<config evaluator="model-type" condition="ccm:panCard">
+		<forms>
+			<!-- Search form configuration for the ev:eisenvaultDoc type -->
+			<form id="search">
+				<field-visibility>
+					<!-- OOTB content type -->
+					<show id="cm:name" />
+					<show id="cm:title" force="true" />
+					<show id="cm:description" force="true" />
+					<show id="cm:author" force="true" />
+					<show id="cm:creator" force="true" />
+					<show id="cm:created" force="true" />
+					<show id="cm:modifier" force="true" />
+					<show id="cm:modified" force="true" />
+					<!-- ccm:panCard -->
+					<show id="ccm:panCardName" />
+					<show id="ccm:panCardNumber" />
+				</field-visibility>
+
+				<appearance>
+					<!-- OOTB content type -->
+					<field id="cm:created">
+						<control template="/org/alfresco/components/form/controls/daterange.ftl" />
+					</field>
+					<field id="cm:modified">
+						<control template="/org/alfresco/components/form/controls/daterange.ftl" />
+					</field>
+					<!-- ccm:panCard -->
+					<field id="ccm:panCardName" label-id="prop.ccm_panCardName"/>
+					<field id="ccm:panCardNumber" label-id="prop.ccm_panCardNumber"/>
+				</appearance>
+			</form>
+
+			<!-- default form for Uploader Plus tool -->
+			<form>
+				<field-visibility>
+					<!-- OOTB content type -->
+					<show id="cm:name" />
+					<show id="cm:title" force="true" />
+					<show id="cm:description" force="true" />
+					<!-- ccm:panCard -->
+					<show id="ccm:panCardName" />
+					<show id="ccm:panCardNumber" />
+				</field-visibility>
+
+				<appearance>
+					<!-- ccm:panCard -->
+					<field id="ccm:panCardName" label-id="prop.ccm_panCardName"/>
+					<field id="ccm:panCardNumber" label-id="prop.ccm_panCardNumber"/>
+				</appearance>
+			</form>
+		</forms>
+	</config>
+ 
+</alfresco-config>

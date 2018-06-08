@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="ccm:contentModel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+
+    <!-- Optional meta-data about the model -->
+    <description>Sample Document Model</description>
+    <author>My Name</author>
+    <version>1.0</version>
+
+    <imports>
+        <!-- Import Alfresco Dictionary Definitions -->
+        <import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d"/>
+        <!-- Import Alfresco Content Domain Model Definitions -->
+        <import uri="http://www.alfresco.org/model/content/1.0" prefix="cm"/>
+        <!-- Import Alfresco System Model Definitions -->
+        <import uri="http://www.alfresco.org/model/system/1.0" prefix="sys"/>
+    </imports>
+
+    <!-- Custom namespace for the ccm company -->
+    <namespaces>
+        <namespace uri="http://www.myspace.org/model/content/1.0" prefix="ccm"/>
+    </namespaces>
+    <!-- ===============================================================================================================
+        Constraints, Types, and Aspects go here...
+        -->
+
+    <types>
+        <!--
+            ccm Enterprise-wide Document root type.
+            All other custom document types would extend this one.
+        -->
+        <type name="ccm:aadhar">
+            <title>Aadhar Document Type</title>
+            <parent>cm:content</parent>
+            <properties>
+                <property name="ccm:aadharName">
+                    <title>Name On Aadhar</title>
+                    <type>d:text</type>
+                </property>
+                <property name="ccm:aadharNumber">
+                    <title>Aadhar Number</title>
+                    <type>d:long</type>
+                </property>
+            </properties>
+        </type>
+        <type name="ccm:panCard">
+            <title>Pan-Card Document Type</title>
+            <parent>cm:content</parent>
+            <properties>
+                <property name="ccm:panCardNumber">
+                    <title>Pan Card Number</title>
+                    <type>d:text</type>
+                </property>
+                <property name="ccm:panCardName">
+                    <title>Pan Card Holder's Name</title>
+                    <type>d:text</type>
+                </property>
+            </properties>
+        </type>
+
+    </types>
+</model>
